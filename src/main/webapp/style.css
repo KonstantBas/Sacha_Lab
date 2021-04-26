@@ -1,0 +1,66 @@
+.body {
+    position: relative;
+}
+.header {
+    width: 99%;
+    background: #ccc;
+    padding: 5px;
+    height: 30px;
+    /*padding-right: 100px;*/
+    border: solid 1px black;
+    /*float: left;*/
+    /*margin: 5px 5px 5px; !* Отступы вокруг *!*/
+    position: absolute;
+    text-align: center;
+}
+.input-data {
+    width: 50%;
+    height: 350px;
+    background: #ccc;
+    position: relative;
+    border: solid 1px black;
+    top: 55px;
+    text-align: center;
+}
+.header-text {
+    font-size: 30px;
+}
+.input-text {
+    font-size: 30px;
+}
+.input-header-text {
+    font-size: 30px;
+}
+.result-table_container {
+    position: absolute;
+    top: 430px;
+    background: #ccc;
+    border: solid 1px black;
+    width: 50%;
+    text-align: center;
+    overflow-y: scroll;
+    height: 225px;
+}
+.result-table {
+    width: 100%;
+}
+.return_link {
+    position: absolute;
+    background: #ccc;
+    top: 680px;
+    border: solid 1px black;
+    width: 40%;
+    text-align: center;
+    height: 90px;
+    margin-left: 460px;
+}
+.graphik {
+    position: absolute;
+    background: #ccc;
+    border: solid 1px black;
+    top: 55px;
+    text-align: center;
+    width: 45%;
+    margin-left: 778px;
+    height: 600px;
+}

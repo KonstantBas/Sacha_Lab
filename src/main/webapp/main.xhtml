@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Created by IntelliJ IDEA.
+  User: ramzes
+  Date: 26.04.2021
+  Time: 09:52
+-->
+<!DOCTYPE html
+        PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html" xmlns:a="http://java.sun.com/jsf/composite"
+      xmlns:f="http://java.sun.com/jsf/core" xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="style.css"/>
+</h:head>
+
+<h:body styleClass="body">
+    <div class="header">
+        <h:outputText value="Лабораторная работа - Основная страница" styleClass="header-text"/>
+    </div>
+    <div class="input-data">
+        <h:outputLabel for="corX" value="Введите данные" styleClass="input-header-text" />
+        <h:form  id="form">
+            <div>
+                <h:outputLabel for="corX" value="Введите X ([-4...4]): " styleClass="input-text" />
+                <h:inputText id="corX" maxlength="5" autocomplete="off" a:placeholder="Число от -5 до 3..." value="#{informationList.information.coordinateX}">
+                    <f:validateDoubleRange minimum="-4.0" maximum="4.0"/>
+                </h:inputText>
+            </div>
+            <div>
+                <h:outputLabel for="corY" value="Введите Y([-2...2]): " styleClass="input-text" />
+                <h:inputText id="corY" maxlength="5" autocomplete="off" a:placeholder="Число от -2 до 2..." value="#{informationList.information.coordinateY}">
+                    <f:validateDoubleRange minimum="-2.0" maximum="2.0"/>
+                </h:inputText>
+            </div>
+            <div>
+                <h:outputLabel for="corR" value="Выберите R" styleClass="input-text" />
+                <h:selectOneMenu id="corR" value="#{informationList.information.valueR}">
+                    <f:selectItem itemValue="1" itemLabel="1"/>
+                    <f:selectItem itemValue="1.5" itemLabel="1.5"/>
+                    <f:selectItem itemValue="2" itemLabel="2"/>
+                    <f:selectItem itemValue="2.5" itemLabel="2.5"/>
+                    <f:selectItem itemValue="3" itemLabel="3"/>
+                </h:selectOneMenu>
+            </div>
+
+            <h:commandButton id="but" value="ПОЕХАЛИ!" action="#{informationList.add}"/>
+            <h:commandButton value="очистить!" action="#{informationList.deleteList}"/>
+        </h:form>
+    </div>
+
+
+    <div class="result-table_container">
+        <h:dataTable id="table_data" styleClass="result-table" value="#{informationList.informationList}" var="information">
+            <h:column headerClass="result-table__column result-table__column_coords">
+                <f:facet name="header">X</f:facet>
+                <h:outputText value="#{information.coordinateX}"/>
+            </h:column>
+            <h:column headerClass="result-table__column result-table__column_coords">
+                <f:facet name="header">Y</f:facet>
+                <h:outputText value="#{information.coordinateY}"/>
+            </h:column>
+            <h:column headerClass="result-table__column result-table__column_coords">
+                <f:facet name="header">R</f:facet>
+                <h:outputText value="#{information.valueR}"/>
+            </h:column>
+            <h:column headerClass="result-table__column result-table__column_hitres">
+                <f:facet name="header">Результат</f:facet>
+                <h:outputText value="#{information.result}"/>
+            </h:column>
+        </h:dataTable>
+    </div>
+    <div class="graphik">
+        <div id="for_gen_canvas">
+            <h:outputText value="Интерактивная область" styleClass="header-text"/>
+        </div>
+    </div>
+        <div class="return_link">
+            <h:form style="border-width:0px; margin: 0 auto; padding: 30px; border-color:#949494; border-style:solid; width: 80%">
+                <p:button outcome="to_index" value="Вернуться в ангар" icon="pi"/>
+            </h:form>
+        </div>
+
+</h:body>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js" type=""></script>
+<script type="text/javascript" src="main.js"></script>
+
+</html>
