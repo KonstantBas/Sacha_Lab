@@ -14,7 +14,6 @@ import java.util.List;
 public class ListInformation implements Serializable {
     private Information information;
     private List<Information> informationList;
-    private String outputtext;
     
 
     private EntityManagerFactory entityManagerFactory;
