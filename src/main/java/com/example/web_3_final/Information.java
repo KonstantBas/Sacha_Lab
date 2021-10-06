@@ -70,9 +70,9 @@ public class Information implements Serializable {
 
     public String chekPenetration (double x, double y, double r){
         if (x > 0 && y > 0 ) return areaOne(x, y, r);
-        if (x < 0 && y > 0) return "Нету пробития";
+        if (x < 0 && y > 0) return areaTwo(x, y, r);
         if (x < 0 && y < 0) return areaThree(x, y, r);
-        if (x > 0 && y < 0) return areaFour(x, y, r);
+        if (x > 0 && y < 0) return "Нету пробития";
         return areaOn(x, y, r);
     }
 
@@ -81,22 +81,22 @@ public class Information implements Serializable {
         return "Нету пробития";
     }
 
-    public String areaThree (double x, double y, double r) {
+    public String areaTwo (double x, double y, double r) {
         if (Math.abs(x) <= Math.abs(r) && Math.abs(y) <= Math.abs(r)) return "Есть пробитие";
         return "Нету пробития";
     }
 
-    public String areaFour (double x, double y, double r) {
-        if (y >= (x - r)) return "Есть пробитие";
+    public String areaThree (double x, double y, double r) {
+        if (y >= (-x - r)) return "Есть пробитие";
         return "Нету пробития";
     }
 
     public String areaOn (double x, double y, double r) {
         if (x == 0) {
-            if (y <= r/2 && y >= (r * (-1))) return "Есть пробитие";
+            if (y <= r && y >= r) return "Есть пробитие";
             return "Нету пробития";
         }
-        if (Math.abs(x) <= r) return "Есть пробитие";
+        if (x <r/2 && x > (r * (-1))) return "Есть пробитие";
         return "Нету пробития";
     }
 
